@@ -1,5 +1,5 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
 import React, {useState} from 'react';
+import {StyleSheet, Text, TextInput, View, ScrollView} from 'react-native';
 
 function App() {
     const [email, setEmail] = useState('');
@@ -78,7 +78,7 @@ function InputWithLabel(props) {
     const {label, placeholder, value, onChangeText, secureTextEntry, onSubmitEditing} = props;
 
     return (
-        <View style={{padding: 16}}>
+        <ScrollView style={{padding: 16}}>
             <Text style={{padding: 8, fontSize: 18}}>{label}</Text>
             <TextInput
                 placeholder={placeholder}
@@ -88,7 +88,7 @@ function InputWithLabel(props) {
                 onSubmitEditing={onSubmitEditing}
                 style={{padding: 8, fontSize: 18}}
             />
-        </View>
+        </ScrollView>
     );
 }
 
