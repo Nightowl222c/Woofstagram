@@ -5,7 +5,7 @@ function App() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [birhday, setBirthday] = useState('');
+    const [birthday, setBirthday] = useState('');
     const [breed, setBreed] = useState('');
     const [toy, setToy] = useState('');
     return (
@@ -36,7 +36,7 @@ function App() {
              <InputWithLabel
                 label="Date of birth"
                 placeholder="Type your pet's name here" 
-                value={Date}
+                value={birthday}
                 onChangeText={setBirthday}
             />
             <InputWithLabel
