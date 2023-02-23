@@ -5,7 +5,12 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "d96d6b18-01a2-4703-bf51-a8c238d3edfc"
+      }
+    }
   },
   "name": "myReactApp"
 }
