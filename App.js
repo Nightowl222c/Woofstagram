@@ -4,10 +4,20 @@ import React, {useState} from 'react';
 function App() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmationPassword, setConfirmationPassword] = useState('');
     const [name, setName] = useState('');
     const [birthday, setBirthday] = useState('');
     const [breed, setBreed] = useState('');
     const [toy, setToy] = useState('');
+
+    function confirmationPasswordMatch(props) {
+        const {nativeEvent: { text } }= props;
+    //... check password against confirmation password
+        if (text !== password) {
+            alert('Passwords do not match, please try again.')
+        }
+    }
+
     return (
         <View style={{
             flex: 1,
@@ -25,7 +35,15 @@ function App() {
                 placeholder="Type your password here"
                 value={password}
                 onChangeText={setPassword}
-                secureTextEntry={true}
+                secureTextEntry
+            />
+            <InputWithLabel
+                label="Confirm Password"
+                placeholder="Confirm your password here"
+                value={confirmationPassword}
+                onChangeText={setConfirmationPassword}
+                secureTextEntry
+                onSubmitEditing={confirmationPasswordMatch}
             />
             <InputWithLabel
                 label="Name"
@@ -57,7 +75,7 @@ function App() {
 }
 
 function InputWithLabel(props) {
-    const {label, placeholder, value, onChangeText, secureTextEntry} = props;
+    const {label, placeholder, value, onChangeText, secureTextEntry, onSubmitEditing} = props;
 
     return (
         <View>
@@ -67,6 +85,7 @@ function InputWithLabel(props) {
                 value={value}
                 onChangeText={onChangeText}
                 secureTextEntry={secureTextEntry}
+                onSubmitEditing={onSubmitEditing}
             />
         </View>
     );
