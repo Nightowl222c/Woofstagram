@@ -23,9 +23,25 @@ const Title = (props) => (
 );
 
 const styles = StyleSheet.create({
-  avatar: {},
-  heading: {},
-  title: {},
+  avatar: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+  },
+  heading: {
+    fontSize: 24,
+    fontWeight: '600',
+    paddingTop: 20,
+    paddingBottom: 12,
+    paddingHorizontal: 24,
+    color: '#08060B'
+  },
+  title: {
+    color: '#2800D5F',
+    fontSize: 12,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+  },
 });
 
 // App-specific components
