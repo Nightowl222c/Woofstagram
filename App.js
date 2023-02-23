@@ -64,7 +64,7 @@ const woofCardStyles = StyleSheet.create({
     borderWith: 1, 
     borderColor: '#E7E3EB',
     borderRadius: 12,
-    backgroundColor: 'blue'
+    backgroundColor: 'gray'
   },
   title: {
     alignItems: 'center',
@@ -135,7 +135,7 @@ const App = () => (
 
 export default App;
 
-// "Fake" API data to use in your app
+// "Fake" API data to use in the app
 const data = {
   woofs: [
     {
