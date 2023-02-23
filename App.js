@@ -1,7 +1,13 @@
 import {StyleSheet, Text, TextInput, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 
 function App() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [birhday, setBirthday] = useState('');
+    const [breed, setBreed] = useState('');
+    const [toy, setToy] = useState('');
     return (
         <View style={{
             flex: 1,
@@ -11,32 +17,47 @@ function App() {
             <InputWithLabel
                 label="Email"
                 placeholder="Type your email here"
-                value=""
-                onChangeText={() => {
-                }}
+                value={email}
+                onChangeText={setEmail}
             />
             <InputWithLabel
                 label="Password"
                 placeholder="Type your password here"
-                value=""
-                onChangeText={() => {
-                }}
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry={true}
             />
             <InputWithLabel
                 label="Name"
-                placeholder="Type your pet's name here" 
-                value=""
-                onChangeText={() => {
-                }}
+                placeholder="Type your pet's name here." 
+                value={name}
+                onChangeText={setName}
             />
-            
+             <InputWithLabel
+                label="Date of birth"
+                placeholder="Type your pet's name here" 
+                value={Date}
+                onChangeText={setBirthday}
+            />
+            <InputWithLabel
+                label="Breed"
+                placeholder="Type your pet's breed here" 
+                value={breed}
+                onChangeText={setBreed}
+            />
+             <InputWithLabel
+                label="Toy"
+                placeholder="Type your pet's toy here" 
+                value={toy}
+                onChangeText={setToy}
+            />
         </View>
 
     )
 }
 
 function InputWithLabel(props) {
-    const {label, placeholder, value, onChangeText} = props;
+    const {label, placeholder, value, onChangeText, secureTextEntry} = props;
 
     return (
         <View>
@@ -45,6 +66,7 @@ function InputWithLabel(props) {
                 placeholder={placeholder}
                 value={value}
                 onChangeText={onChangeText}
+                secureTextEntry={secureTextEntry}
             />
         </View>
     );
