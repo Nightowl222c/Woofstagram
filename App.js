@@ -68,6 +68,7 @@ const woofCardStyles = StyleSheet.create({
   },
   title: {
     alignItems: 'center',
+
     paddingTop: 8,
   },
 });
@@ -117,8 +118,12 @@ const HomeScreen = () => (
      
     </ScrollView>
     <Heading>New Woof posts</Heading>
-    <WoofPost image="https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=967&q=80"
-    title="Happy Woofs" description="How to keep your woof health and happy. We've asked some of the best experts out there." />
+    {
+        data.posts.map(post => (
+            <WoofPost key={post.id} image={post.image} title={post.title} description={post.description} />
+        ))
+    }
+
   </ScrollView>
 );
 
