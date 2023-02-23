@@ -47,41 +47,78 @@ const styles = StyleSheet.create({
 // App-specific components
 
 const WoofCard = (props) => (
-  <View>
-    <Avatar />
-    <Title>Todo</Title>
+  <View style={woofCardStyles.card}>
+    <Avatar url={props.avatar}/>
+    <View style={woofCardStyles.title}>
+        <Title>{props.name}</Title>
+    </View>
   </View>
 );
 
 const woofCardStyles = StyleSheet.create({
-  card: {},
-  title: {},
+  card: {
+    width: 88,
+    height: 112,
+    padding: 12,
+    marginRight: 16,
+    borderWith: 1, 
+    borderColor: '#E7E3EB',
+    borderRadius: 12,
+    backgroundColor: 'blue'
+  },
+  title: {
+    alignItems: 'center',
+    paddingTop: 8,
+  },
 });
 
 const WoofPost = (props) => (
-  <View>
-    <Image source={{ uri: 'todo' }} />
-    <View>
-      <Text>todo</Text>
-      <Text>todo</Text>
+  <View style={woofPostStyles.layout}>
+    <Image source={{ uri: props.image }} style={woofPostStyles.image} />
+    <View style={woofPostStyles.content}>
+      <Title>{props.title}</Title>
+      <Text style={woofPostStyles.description}>{props.description}</Text>
     </View>
   </View>
 );
 
 const woofPostStyles = StyleSheet.create({
-  layout: {},
-  image: {},
-  content: {},
+  layout: {
+    marginHorizontal: 24,
+    flexDirection: 'row',
+    marginVertical: 8,
+  },
+  image: {
+    borderRadius: 12,
+    flex: 1,
+  },
+  content: {
+    flex: 2, 
+    padding: 12, 
+  },
   title: {},
-  description: {},
+  description: {
+    fontSize: 12,
+    marginTop: 4,
+    color: '#280D5F'
+  },
 });
 
-// The screen rendering everything
+// The screen rendering everything. Is the landing page.
 const HomeScreen = () => (
   <ScrollView>
-    <Heading>Generic heading</Heading>
-    <Avatar url="https://picsum.photos/64/64" />
-    <Title>Generic title</Title>
+    <Heading>Trending Woofs</Heading>
+    <ScrollView horizontal>
+        {
+            data.woofs.map(woof => (
+                <WoofCard key={woof.id} name={woof.name} avatar={woof.avatar} />
+            ))
+        }
+     
+    </ScrollView>
+    <Heading>New Woof posts</Heading>
+    <WoofPost image="https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=967&q=80"
+    title="Happy Woofs" description="How to keep your woof health and happy. We've asked some of the best experts out there." />
   </ScrollView>
 );
 
